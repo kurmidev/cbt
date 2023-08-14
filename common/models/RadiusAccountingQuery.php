@@ -1,0 +1,32 @@
+<?php
+
+namespace common\models;
+
+/**
+ * This is the ActiveQuery class for [[RadiusAccounting]].
+ *
+ * @see RadiusAccounting
+ */
+class RadiusAccountingQuery extends \common\models\BaseQuery {
+    /* public function active()
+      {
+      return $this->andWhere('[[status]]=1');
+      } */
+
+    /**
+     * {@inheritdoc}
+     * @return RadiusAccounting[]|array
+     */
+    public function all($db = null) {
+        return parent::all($db);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return RadiusAccounting|array|null
+     */
+    public function one($db = null) {
+        return parent::one($db);
+    }
+
+}

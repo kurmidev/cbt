@@ -1,0 +1,38 @@
+<?php
+
+use yii\db\Migration;
+
+/**
+ * Handles the creation of table `{{%radius_check}}`.
+ */
+class m210205_174045_create_radius_check_table extends Migration {
+
+    public $table = "radius_check";
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeUp() {
+        $this->createTable($this->table, [
+            'id' => $this->primaryKey(),
+            "account_id" => $this->bigInteger(),
+            "username" => $this->string()->notNull(),
+            "attribute" => $this->string()->notNull(),
+            "op" => $this->string()->notNull()->defaultValue("=="),
+            "value" => $this->string()->notNull(),
+            "start_time" => $this->time(),
+            "end_time" => $this->time()
+        ]);
+
+        $this->createIndex("ix-username", $this->table, ['username']);
+        $this->addForeignKey("fk-account_id", $this->table, "account_id", "customer_account", "id");
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown() {
+        $this->dropTable($this->table);
+    }
+
+}
