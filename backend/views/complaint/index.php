@@ -1,6 +1,6 @@
 <?php
 
-use yii\bootstrap\Html;
+use yii\helpers\Html;;
 use common\component\Utils as U;
 ?>
 <?= $this->render('@app/views/layouts/_header') ?>

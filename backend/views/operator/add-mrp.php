@@ -1,6 +1,6 @@
 <?php
 
-use yii\bootstrap\Html;
+use yii\helpers\Html;;
 use common\component\ImsGridView;
 use yii\widgets\Pjax;
 use common\ebl\Constants as C;

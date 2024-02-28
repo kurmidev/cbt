@@ -65,6 +65,7 @@ class OperatorForm extends \yii\base\Model {
             'gst_no' => 'Gst No',
             'pan_no' => 'Pan No',
             'tan_no' => 'Tan No',
+            "designation_id"=>"Designation",
             'billing_by' => 'Billing By',
             'username' => 'Username',
             'meta_data' => 'Meta Data',

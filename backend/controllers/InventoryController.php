@@ -141,9 +141,9 @@ class InventoryController extends \common\component\BaseAdminController {
         ]);
     }
 
-    public function actionCreateRequisition() {
-        $model = 
-    }
+    // public function actionCreateRequisition() {
+    //     $model = 
+    // }
 
     /*     * ********************End Device Requisition******************************** */
 

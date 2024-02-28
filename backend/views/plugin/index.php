@@ -14,7 +14,7 @@ $this->params['links'] = [
     ['title' => 'SMS', 'url' => \Yii::$app->urlManager->createUrl('plugin/add-sms'), 'class' => 'fa fa-comments'],
     ['title' => 'Payment Gateway', 'url' => \Yii::$app->urlManager->createUrl('plugin/add-pg'), 'class' => 'fa fa-money'],
     ['title' => 'NAS', 'url' => \Yii::$app->urlManager->createUrl('plugin/add-nas'), 'class' => 'fa fa-wifi'],
-    ['title' => 'OTT', 'url' => \Yii::$app->urlManager->createUrl('plugin/add-ott'), 'class' => 'fa fa-film'],
+    ['title' => 'CAS/OTT', 'url' => \Yii::$app->urlManager->createUrl('plugin/add-ott'), 'class' => 'fa fa-film'],
 ];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -63,6 +63,7 @@ ImsGridView::widget([
                         $func = "add-pg";
                         break;
                     case C::PLUGIN_TYPE_OTT:
+                    case C::PLUGIN_TYPE_CAS:
                         $lbl .= "OTT";
                         $func = "add-ott";
                         break;

@@ -1,6 +1,6 @@
 <?php
 
-use yii\bootstrap\Html;
+use yii\helpers\Html;;
 use common\component\ImsGridView;
 use common\ebl\Constants as C;
 use yii\bootstrap\ActiveForm;

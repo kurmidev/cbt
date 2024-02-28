@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use common\ebl\Constants as C;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Area */
@@ -19,19 +20,26 @@ $cnt = !empty($model->meta_data) ? array_keys($model->meta_data) : [0];
 
 
         <div class="row">
-            <div class="col-lg-6 col-sm-6 col-xs-6">
+            <div class="col-lg-4 col-sm-4 col-xs-4">
                 <?= $form->field($model, 'name', ['options' => ['class' => 'form-group']])->begin() ?>
-                <?= Html::activeLabel($model, 'name', ['class' => 'col-lg-3 col-sm-3 col-xs-3 control-label']); ?>
+                <?= Html::activeLabel($model, 'name', ['class' => 'col-lg-12 col-sm-12 col-xs-12 control-label']); ?>
                 <?= Html::activeTextInput($model, 'name', ['class' => 'form-control']) ?>
                 <?= Html::error($model, 'name', ['class' => 'error help-block']) ?>
                 <?= $form->field($model, 'name')->end() ?>
             </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6">
+            <div class="col-lg-4 col-sm-4 col-xs-4">
                 <?= $form->field($model, 'plugin_url', ['options' => ['class' => 'form-group']])->begin() ?>
-                <?= Html::activeLabel($model, 'plugin_url', ['class' => 'col-lg-3 col-sm-3 col-xs-3 control-label']); ?>
+                <?= Html::activeLabel($model, 'plugin_url', ['class' => 'col-lg-12 col-sm-12 col-xs-12 control-label']); ?>
                 <?= Html::activeTextInput($model, 'plugin_url', ['class' => 'form-control']) ?>
                 <?= Html::error($model, 'plugin_url', ['class' => 'error help-block']) ?>
                 <?= $form->field($model, 'plugin_url')->end() ?>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-4">
+                <?= $form->field($model, 'plugin_type', ['options' => ['class' => 'form-group']])->begin() ?>
+                <?= Html::activeLabel($model, 'plugin_type', ['class' => 'col-lg-12 col-sm-12 col-xs-12 control-label']); ?>
+                <?= Html::activeDropDownList($model, 'plugin_url',[C::PLUGIN_TYPE_CAS=>'CAS',C::PLUGIN_TYPE_OTT=>"OTT"], ['class' => 'form-control','prompt'=>"Select one"]) ?>
+                <?= Html::error($model, 'plugin_type', ['class' => 'error help-block']) ?>
+                <?= $form->field($model, 'plugin_type')->end() ?>
             </div>
         </div>
         <div class="row">
@@ -45,7 +53,7 @@ $cnt = !empty($model->meta_data) ? array_keys($model->meta_data) : [0];
             <div class="col-lg-6 col-sm-6 col-xs-6">
                 <?= $form->field($model, 'status', ['options' => ['class' => "form-group"]])->begin(); ?>
                 <?= Html::activeLabel($model, 'status', ['class' => 'col-lg-3 col-sm-3 col-xs-3 control-label']) ?>
-                <?= Html::activeDropDownList($model, 'status', common\ebl\Constants::LABEL_STATUS, ['class' => 'form-control']) ?>
+                <?= Html::activeDropDownList($model, 'status', common\ebl\Constants::LABEL_STATUS, ['class' => 'form-control',"prompt"=>"Select one"]) ?>
                 <?= Html::error($model, 'status', ['class' => 'error help-block']) ?>
                 <?= $form->field($model, 'status')->end() ?>
             </div>

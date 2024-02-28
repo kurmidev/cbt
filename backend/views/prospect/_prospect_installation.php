@@ -1,6 +1,6 @@
 <?php
 
-use yii\bootstrap\Html;
+use yii\helpers\Html;;
 use common\ebl\Constants as C;
 
 $list = \yii\helpers\ArrayHelper::map(\common\models\User::find()->asArray()->all(), 'id', 'name');

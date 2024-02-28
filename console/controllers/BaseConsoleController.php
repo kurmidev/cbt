@@ -23,7 +23,6 @@ class BaseConsoleController extends \yii\console\Controller {
     public $cron_name;
 
     public function init() {
-        parent::init();
         $this->initateSession(Constants::CONSOLE_ID);
         $this->init_time = date("Y-m-d H:i:s");
     }

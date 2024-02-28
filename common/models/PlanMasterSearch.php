@@ -20,7 +20,7 @@ class PlanMasterSearch extends PlanMaster {
      */
     public function rules() {
         return [
-            [['id', 'is_exclusive', 'is_promotional', 'plan_type', 'billing_type', 'status', 'days', 'free_days', 'reset_type', 'limit_type', 'added_by', 'updated_by', 'is_rate_required'], 'integer'],
+            [['id', 'plan_type', 'status', 'reset_type', 'limit_type', 'added_by', 'updated_by', 'is_rate_required'], 'integer'],
             [['name', 'code', 'display_name', 'applicable_days', 'description', 'meta_data', 'added_on', 'updated_on', 'operator_id', 'ex_operator_id'], 'safe'],
             [['reset_value', 'upload', 'download', 'post_upload', 'post_download', 'limit_value'], 'number'],
         ];
@@ -78,13 +78,8 @@ class PlanMasterSearch extends PlanMaster {
         // grid filtering conditions
         $query->andFilterWhere([
             $query->tableAlias . 'id' => $this->id,
-            $query->tableAlias . 'is_exclusive' => $this->is_exclusive,
-            $query->tableAlias . 'is_promotional' => $this->is_promotional,
             $query->tableAlias . 'plan_type' => $this->plan_type,
-            $query->tableAlias . 'billing_type' => $this->billing_type,
             $query->tableAlias . 'status' => $this->status,
-            $query->tableAlias . 'days' => $this->days,
-            $query->tableAlias . 'free_days' => $this->free_days,
             $query->tableAlias . 'reset_type' => $this->reset_type,
             $query->tableAlias . 'reset_value' => $this->reset_value,
             $query->tableAlias . 'upload' => $this->upload,

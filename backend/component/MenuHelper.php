@@ -250,18 +250,38 @@ class MenuHelper {
         'policies' => [
             "config" => ["class" => "menu-item-icon icon tx-18 fa fa-flash"],
             "items" => [
+                'genre' => [
+                    ['module' => '', 'controller' => 'services', 'action' => 'genre', 'label' => 'Genre', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'add-genre', 'label' => 'Add Genre', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'update-genre', 'label' => 'Update Genre', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                ],
+                'language' => [
+                    ['module' => '', 'controller' => 'services', 'action' => 'language', 'label' => 'Language', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'add-language', 'label' => 'Add Language', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'update-language', 'label' => 'Update Language', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                ],
+                'broadcaster' => [
+                    ['module' => '', 'controller' => 'services', 'action' => 'broadcaster', 'label' => 'Broadcaster', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'add-broadcaster', 'label' => 'Add Broadcaster', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'update-broadcaster', 'label' => 'Update Broadcaster', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                ],
+                'services' => [
+                    ['module' => '', 'controller' => 'services', 'action' => 'services', 'label' => 'Cable Service', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'add-services', 'label' => 'Add Cable Service', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'services', 'action' => 'update-services', 'label' => 'Update Cable Service', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                ],
                 'ip_pool' => [
                     ['module' => '', 'controller' => 'plan', 'action' => 'ippool', 'label' => 'IP Pool', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline", "apply_to" => [C::DESIG_OPERATOR, C::DESIG_DISTRIBUTOR, C::DESIG_RO]],
                     ['module' => '', 'controller' => 'plan', 'action' => 'add-ippool', 'label' => 'Add IP Pool', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                     ['module' => '', 'controller' => 'plan', 'action' => 'update-ippool', 'label' => 'Update IP Pool', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                 //   ['module' => '', 'controller' => 'plan', 'action' => 'assign-staticip', 'label' => 'Assign Static IP Policy', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                 ],
-                'staticip_policy' => [
-                    ['module' => '', 'controller' => 'plan', 'action' => 'staticip', 'label' => 'Static Ip Policy', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline", "apply_to" => [C::DESIG_OPERATOR, C::DESIG_DISTRIBUTOR, C::DESIG_RO]],
-                    ['module' => '', 'controller' => 'plan', 'action' => 'add-staticip', 'label' => 'Add Static IP Policy', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'plan', 'action' => 'update-staticip', 'label' => 'Update Static IP Policy', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'plan', 'action' => 'assign-staticip', 'label' => 'Assign Static IP Policy', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                ],
+                // 'staticip_policy' => [
+                //     ['module' => '', 'controller' => 'plan', 'action' => 'staticip', 'label' => 'Static Ip Policy', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline", "apply_to" => [C::DESIG_OPERATOR, C::DESIG_DISTRIBUTOR, C::DESIG_RO]],
+                //     ['module' => '', 'controller' => 'plan', 'action' => 'add-staticip', 'label' => 'Add Static IP Policy', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                //     ['module' => '', 'controller' => 'plan', 'action' => 'update-staticip', 'label' => 'Update Static IP Policy', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                //     ['module' => '', 'controller' => 'plan', 'action' => 'assign-staticip', 'label' => 'Assign Static IP Policy', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                // ],
                 'policy' => [
                     ['module' => '', 'controller' => 'plan', 'action' => 'index', 'label' => 'Plan', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline", "apply_to" => [C::DESIG_OPERATOR, C::DESIG_DISTRIBUTOR, C::DESIG_RO]],
                     ['module' => '', 'controller' => 'plan', 'action' => 'add-plan', 'label' => 'Add Plan', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],

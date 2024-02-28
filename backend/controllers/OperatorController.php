@@ -67,7 +67,7 @@ class OperatorController extends \common\component\BaseAdminController {
         $model->type = $type;
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->save();
-            $redirect = $type == C::OPERATOR_TYPE_DISTRIBUTOR ? 'distributor' : 'franchise';
+            $redirect = $type == C::OPERATOR_TYPE_RO?'ro':(C::OPERATOR_TYPE_DISTRIBUTOR ? 'distributor' : 'franchise');
             return $this->redirect([$redirect, 'id' => $model->id]);
         }
 

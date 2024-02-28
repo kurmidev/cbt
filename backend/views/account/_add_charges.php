@@ -1,6 +1,6 @@
 <?php
 
-use yii\bootstrap\Html;
+use yii\helpers\Html;;
 
 $list = common\ebl\Constants::SUBSCRIBER_ACTIVATION_CHARGES;
 $cnt = !empty($model->charges) ? array_keys($model->charges) : [0];

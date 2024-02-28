@@ -4,7 +4,8 @@ namespace common\ebl;
 
 use yii\helpers\ArrayHelper;
 
-class Constants {
+class Constants
+{
 
     const DESIGNATION_OPERATOR = -3;
     const DESIGNATION_DISTRIBUTOR = -2;
@@ -91,8 +92,10 @@ class Constants {
     const FEMALE = 2;
     const LIMIT_DATA_BASED = 1;
     const LIMIT_SESSION_BASED = 2;
+    const RESET_PLAN_NO = 0;
     const RESET_PERDAY = 1;
-    const RESET_PLAN_BASED = 2;
+    const RESET_PLAN_MONTHLY = 2;
+    const RESET_PLAN_BASED = 3;
     const RATE_TYPE_BOUQUET = 1;
     const RATE_TYPE_STATICIP = 2;
     const MACBIND_AUTO_ONE = 1;
@@ -148,6 +151,10 @@ class Constants {
     const INVENTORY_STATUS_REPAIRED = 3;
     const INVENTORY_STATUS_DAMAGED = 4;
 
+    const SERVICE_TYPE_PACKAGE = 1;
+    const SERVICE_TYPE_CHANNEL = 2;
+    const SERVICE_TYPE_BROADCASTER = 3;
+    const SERVICE_TYPE_OTT = 4;
     /*     * *************Transaction types**************************** */
     const TRANS_DR_SUBSCRIPTION_CHARGES = 1;
     const TRANS_CR_SUBSCRIPTION_REFUND_CHARGES = 2;
@@ -317,7 +324,8 @@ class Constants {
     const PLUGIN_TYPE_MOBILE_SMS = 1;
     const PLUGIN_TYPE_PAYMENT_GATEWAY = 2;
     const PLUGIN_TYPE_NAS = 3;
-    const PLUGIN_TYPE_OTT = 4;
+    const PLUGIN_TYPE_OTT = 5;
+    const PLUGIN_TYPE_CAS = 4;
     const ACTIVITY_DEVICE_INWARDED = "Device_INWARD";
     const RENEWAL_TYPE_FRESH = 1;
     const RENEWAL_TYPE_RENEWAL = 2;
@@ -414,6 +422,10 @@ class Constants {
         self::STATUS_ACTIVE => "YES",
         self::STATUS_INACTIVE => "No"
     ];
+    const LABEL_HDSD = [
+        self::STATUS_ACTIVE => "HD",
+        self::STATUS_INACTIVE => "SD"
+    ];
     const LABEL_DAYS_TYPES = [
         1 => "Monday",
         2 => "Tuesday",
@@ -443,7 +455,9 @@ class Constants {
         self::LIMIT_SESSION_BASED => "Time (HRS)"
     ];
     const RESET_LABEL = [
+        self::RESET_PLAN_NO => "No",
         self::RESET_PERDAY => "Per Day",
+        self::RESET_PLAN_MONTHLY => "Monthly",
         self::RESET_PLAN_BASED => "Based on Plan"
     ];
     const MACBING_LABEL = [
@@ -519,6 +533,7 @@ class Constants {
         self::PLUGIN_TYPE_MOBILE_SMS => "SMS",
         self::PLUGIN_TYPE_PAYMENT_GATEWAY => "Payment Gateway",
         self::PLUGIN_TYPE_NAS => "NAS",
+        self::PLUGIN_TYPE_CAS => "CAS",
         self::PLUGIN_TYPE_OTT => "OTT"
     ];
     const LABEL_PG = [
@@ -535,6 +550,14 @@ class Constants {
         self::NAS_JUNIPER => "Juniper",
         self::NAS_CISCO => "Cisco"
     ];
+
+    const SERVICE_TYPE = [
+        self::SERVICE_TYPE_PACKAGE => "Package",
+        self::SERVICE_TYPE_CHANNEL => "Channels",
+        self::SERVICE_TYPE_BROADCASTER => "Broadcaster Package",
+        self::SERVICE_TYPE_OTT => "OTT Service"
+    ];
+
     /*     * *************Prefix code************************ */
     const PREFIX_STATE = "STAT";
     const PREFIX_CITY = "CIT";
@@ -557,6 +580,9 @@ class Constants {
     const PREFIX_BOUQUET = "BQ";
     const PREFIX_VENDOR = "VD";
     const PREFIX_DEVICE = "DV";
+    const PREFIX_SERVICE_CHANNEL = "CHL";
+    const PREFIX_SERVICE_PACKAGE = "PCK";
+    const PREFIX_SERVICE_OTT = "OTT";
     const PREFIX_OPT = [
         self::OPERATOR_TYPE_MSO => self::PREFIX_OPT_MSO,
         self::OPERATOR_TYPE_RO => self::PREFIX_OPT_RO,
@@ -579,7 +605,7 @@ class Constants {
     const IP_ASSIGNED = 2;
     const PAY_FOR_OPT = 0;
     const PAY_FOR_SUB = 1;
-    Const POOL_TYPES = [
+    const POOL_TYPES = [
         self::POOL_DYNAMIC => "Dynamic",
         self::POOL_STATIC => "Static",
         self::POOL_EXPIRED => "Expired",
@@ -611,7 +637,5 @@ class Constants {
         jobs\CustomerMigrationJob::class => "Create Customer",
         jobs\BulkWalletRechargeJob::class => "Recharge " . self::OPERATOR_TYPE_LCO_NAME . " Wallet",
     ];
-    const LABEL_ACTIVITY_MODELS = [
-    ];
-
+    const LABEL_ACTIVITY_MODELS = [];
 }

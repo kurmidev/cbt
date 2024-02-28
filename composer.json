@@ -22,7 +22,8 @@
         "yiisoft/yii2-redis": "^2.0",
         "yiisoft/yii2-queue": "^2.3",
         "yiisoft/yii2-bootstrap4": "^2.0",
-        "mongodb/mongodb": "^1.16"
+        "mongodb/mongodb": "^1.16",
+        "bower-asset/bootstrap": "^5.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

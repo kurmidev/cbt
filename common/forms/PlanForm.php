@@ -15,13 +15,8 @@ class PlanForm extends \yii\base\Model {
     public $id;
     public $name;
     public $display_name;
-    public $is_exclusive;
-    public $is_promotional;
-    public $plan_type;
-    public $billing_type;
     public $status;
-    public $days;
-    public $free_days;
+    public $plan_type;
     public $reset_type;
     public $reset_value;
     public $upload;
@@ -32,29 +27,28 @@ class PlanForm extends \yii\base\Model {
     public $limit_type;
     public $limit_value;
     public $description;
+    public $download_pearing;
+    public $upload_pearing;
+    public $post_upload_pearing;
+    public $post_download_pearing;
 
     //public $rates;
 
     public function scenarios() {
         return [
-            PlanMaster::SCENARIO_CREATE => ['id', 'name', 'display_name', 'is_exclusive', 'is_promotional', 'plan_type', 'billing_type', 'status', 'days', 'free_days', 'reset_type', 'reset_value', 'upload', 'download', 'applicable_days', 'post_upload', 'post_download', 'limit_type', 'limit_value', 'description'],
-            PlanMaster::SCENARIO_CONSOLE => ['id', 'name', 'display_name', 'is_exclusive', 'is_promotional', 'plan_type', 'billing_type', 'status', 'days', 'free_days', 'reset_type', 'reset_value', 'upload', 'download', 'applicable_days', 'post_upload', 'post_download', 'limit_type', 'limit_value', 'description'],
-            PlanMaster::SCENARIO_UPDATE => ['id', 'name', 'display_name', 'is_exclusive', 'is_promotional', 'plan_type', 'billing_type', 'status', 'days', 'free_days', 'reset_type', 'reset_value', 'upload', 'download', 'applicable_days', 'post_upload', 'post_download', 'limit_type', 'limit_value', 'description'],
+            PlanMaster::SCENARIO_CREATE => ['id', 'name', 'display_name', 'plan_type', 'status',  'reset_type', 'reset_value', 'upload', 'download', 'applicable_days', 'post_upload', 'post_download', 'limit_type', 'limit_value', 'description','pearing_upload','pearing_download','post_pearing_upload','post_pearing_download'],
+            PlanMaster::SCENARIO_CONSOLE => ['id', 'name', 'display_name', 'plan_type', 'status', 'reset_type', 'reset_value', 'upload', 'download', 'applicable_days', 'post_upload', 'post_download', 'limit_type', 'limit_value', 'description','pearing_upload','pearing_download','post_pearing_upload','post_pearing_download'],
+            PlanMaster::SCENARIO_UPDATE => ['id', 'name', 'display_name', 'plan_type', 'status',  'reset_type', 'reset_value', 'upload', 'download', 'applicable_days', 'post_upload', 'post_download', 'limit_type', 'limit_value', 'description','pearing_upload','pearing_download','post_pearing_upload','post_pearing_download'],
         ];
     }
 
     public function rules() {
-        $dynamic_validate = (new \yii\base\DynamicModel(['name', 'amount', 'mrp']))
-                ->addRule(['name', 'amount', 'mrp'], 'required')
-                ->addRule(['amount', 'mrp'], "number");
-
         return [
-            [['name', 'plan_type', 'billing_type', 'status', 'days', 'reset_type', 'reset_value', 'limit_type', 'limit_value', 'rates'], 'required'],
-            [['is_exclusive', 'is_promotional', 'plan_type', 'billing_type', 'status', 'days', 'free_days', 'reset_type', 'limit_type', 'added_by', 'updated_by'], 'integer'],
-            [['reset_value', 'upload', 'download', 'post_upload', 'post_download', 'limit_value'], 'number'],
+            [['name', 'plan_type', 'status', 'reset_type', 'reset_value', 'limit_type', 'limit_value', 'rates'], 'required'],
+            [[ 'plan_type', 'billing_type', 'status', 'reset_type', 'limit_type', 'added_by', 'updated_by'], 'integer'],
+            [['reset_value', 'upload', 'download', 'post_upload', 'post_download', 'limit_value','pearing_upload','pearing_download','post_pearing_upload','post_pearing_download'], 'number'],
             [['applicable_days', 'meta_data', 'added_on', 'updated_on'], 'safe'],
             [['name', 'display_name', 'description'], 'string', 'max' => 255],
-            [['rates'], 'ValidateMulti', 'params' => ['isMulti' => TRUE, 'ValidationModel' => $dynamic_validate, 'allowEmpty' => FALSE]],
         ];
     }
 
@@ -80,7 +74,6 @@ class PlanForm extends \yii\base\Model {
     public function create() {
         $model = new PlanMaster(['scenario' => PlanMaster::SCENARIO_CREATE]);
         $model->load($this->attributes, '');
-
         if ($model->validate() && $model->save()) {
             $this->id = $model->id;
             $this->addInBouquetAsset($model);
